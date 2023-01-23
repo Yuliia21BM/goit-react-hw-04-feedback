@@ -4,8 +4,6 @@ import { Section } from '../Section/Section';
 import { FeedbackOptions } from '../FeedbackOptions/FeedbackOptions';
 import { Statics } from '../Statistics/Statistics';
 
-// import PropTypes from 'prop-types';
-
 export class FeedbackForm extends Component {
   state = {
     good: 0,
