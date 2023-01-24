@@ -10,17 +10,21 @@ export const FeedbackForm = () => {
   const [bad, setBad] = useState(0);
 
   const handleFeedbackButtonClick = e => {
-    // const { target } = e;
-    // const value = target.name;
-    setGood(good + 1);
-    setNeutral(neutral + 1);
-    setBad(bad + 1);
-    console.log(good, neutral, bad);
-    // value === 'good' ? setGood(good + 1) : good;
-    // value === 'neutral' ? setNeutral(neutral + 1) : neutral;
-    // value === 'bad' ? setBad(bad + 1) : bad;
+    const value = e.target.name;
+    switch (value) {
+      case 'good':
+        setGood(good + 1);
+        break;
+      case 'neutral':
+        setNeutral(neutral + 1);
+        break;
+      case 'bad':
+        setBad(bad + 1);
+        break;
+      default:
+        return;
+    }
   };
-
   const countTotalFeedback = () => {
     const total = good + neutral + bad;
     return total;
@@ -43,8 +47,8 @@ export const FeedbackForm = () => {
         good={good}
         neutral={neutral}
         bad={bad}
-        countTotalFeedback={countTotalFeedback}
-        countPositiveFeedbackPercentage={countPositiveFeedbackPercentage}
+        countTotalFeedback={countTotalFeedback()}
+        countPositiveFeedbackPercentage={countPositiveFeedbackPercentage()}
       />
     </Section>
   );
